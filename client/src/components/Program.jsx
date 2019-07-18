@@ -1,10 +1,17 @@
 import React, { Component } from 'react'
 import '../styles/Program.css'
+import { connect } from 'react-redux'
+import { fetchWorkouts } from '../redux/actions'
 
-// fetch days together
+// fetch workouts together
 // when user clicks on program name, fetch all days and render them  
 
+// id as a prop
+// 
 class Program extends Component {
+    componentDidMount = () => {
+        this.props.fetchWorkouts(this.props.id)
+    }
     render() {
         return (
             <div className='program-container'>
@@ -17,4 +24,20 @@ class Program extends Component {
     }
 }
 
-export default Program
+const mapStateToProps = state => {
+    return {
+
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        fetchWorkouts: id => {
+            dispatch(
+                fetchWorkouts(id)
+            )
+        }
+    }
+}
+
+export default connect(null, mapDispatchToProps)(Program)

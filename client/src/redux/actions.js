@@ -15,3 +15,22 @@ export const receiveAllPrograms = function(programs) {
         programs
     }
 }
+
+
+export const fetchWorkouts = id => {
+    return async function(dispatch) {
+        const res = await fetch(`http://localhost:3001/api/programs/${id}/workouts`)
+        const workoutsJson = await res.json()
+        dispatch(
+            receiveProgramWorkouts(workoutsJson)
+        )
+    }
+}
+
+export const RECEIVE_PROGRAM_WORKOUTS = 'RECEIVE_PROGRAM_WORKOUTS'
+export function receiveProgramWorkouts(workouts) {
+    return {
+        type: RECEIVE_PROGRAM_WORKOUTS,
+        workouts
+    }
+}

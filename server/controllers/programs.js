@@ -13,6 +13,7 @@ exports.getProgram = async function(req, res) {
 
 exports.getProgramWorkouts = async function(req, res) {
     const workouts = await knex('workouts').where('program_id', req.params.id)
+    console.log(workouts)
     res.json(workouts)
 }
 

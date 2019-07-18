@@ -1,16 +1,12 @@
-import React from 'react';
+import React from 'react'
+import ProgramsList from './components/ProgramsList'
 
 class App extends React.Component {
-  componentDidMount = async function() {
-    fetch('/api/workouts', {
-      headers: {
-        'Accept': 'application/json'
-      }
-    })
-  }
   render() {
     return (
-      <>Yo</>
+      <>
+        <ProgramsList />
+      </>
     )
   }
 }

@@ -1,11 +1,7 @@
 import { composeWithDevTools } from 'redux-devtools-extension'
-import { createStore, applyMiddleware, combineReducers } from 'redux'
+import { createStore, applyMiddleware } from 'redux'
 import thunk from 'redux-thunk'
-import sampleReducer from './reducers/sampleReducer'
-
-const reducer = combineReducers({
-    sample: sampleReducer,
-})
+import reducer from './reducer'
 
 const store = createStore(
     reducer,
